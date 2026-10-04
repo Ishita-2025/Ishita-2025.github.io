@@ -125,6 +125,7 @@ section + section {
 }
 
 .photo {
+  object-position: center top;
   flex-shrink: 0;
   width: 220px;
   height: 220px;
