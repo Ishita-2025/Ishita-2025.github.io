@@ -362,6 +362,59 @@ footer p { margin: 0; font-size: 0.9rem; }
   margin-left: 0.5rem;
 }
 
+/* Move to top button (far right, rests just above the footer at end of page) */
+#contact {
+  padding-bottom: 4.5rem;
+}
+
+.to-top-wrap {
+  position: sticky;
+  bottom: 1.25rem;
+  z-index: 20;
+  width: 0;
+  height: 0;
+  margin-left: calc(50% + 50vw - 1.25rem);
+}
+
+.to-top {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 0.7rem 1.2rem;
+  background: var(--teal);
+  color: var(--white);
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none;
+  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(20, 33, 61, 0.3);
+}
+
+.to-top:hover {
+  background: var(--navy);
+  color: var(--white);
+}
+
+@keyframes reveal-top {
+  0%, 95% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@supports (animation-timeline: scroll()) {
+  .to-top {
+    opacity: 0;
+    visibility: hidden;
+    animation: reveal-top linear both;
+    animation-timeline: scroll(root block);
+  }
+}
+
 /* Responsive */
 @media (max-width: 700px) {
   h1 { font-size: 2rem; }
